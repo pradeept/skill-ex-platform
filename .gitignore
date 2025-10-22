@@ -1,0 +1,23 @@
+# server 
+server/node_modules
+server/.env
+
+# ui
+ui/node_modules
+ui/.env
+ui/.next
+ui/build
+
+# debug
+ui/npm-debug.log*
+ui/.vercel
+
+# typescript
+ui/*.tsbuildinfo
+ui/next-env.d.ts
+
+# testing
+/coverage
+
+# next.js
+ui/out/

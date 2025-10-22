@@ -1,0 +1,16 @@
+{
+  "name": "skill-ex-platform",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-personal:pradeept/skill-ex-platform.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
