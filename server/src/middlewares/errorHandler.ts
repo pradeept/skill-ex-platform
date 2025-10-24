@@ -1,5 +1,6 @@
 import type { ErrorRequestHandler, NextFunction, Response } from "express";
 import { AppError } from "../utils/AppError.ts";
+import { ZodError } from "zod";
 
 export const errorHandler: ErrorRequestHandler = (
   err: Error | AppError,
@@ -15,6 +16,11 @@ export const errorHandler: ErrorRequestHandler = (
   if (err instanceof AppError) {
     statusCode = err.statusCode;
     message = err.message;
+  }
+
+  if (err instanceof ZodError) {
+    statusCode = 400;
+    message = `[${err.issues.map((issue) => " " + issue.message)}]`;
   }
 
   res.status(statusCode).json({ status, message });
