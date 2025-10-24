@@ -31,7 +31,8 @@
     // "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
-
+    "noEmit": true, // to import .ts files
+    "allowImportingTsExtensions": true, // to import .ts files
     // Recommended Options
     "strict": true,
     "jsx": "react-jsx",
