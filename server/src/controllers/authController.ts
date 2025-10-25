@@ -11,12 +11,8 @@ export const login = (req: Request, res: Response, next: NextFunction) => {
     return next(new AppError("email and password are required", 400));
   }
 
-  const { email, password } = body;
-  const validate = loginSchema.safeParse({ email, password });
-
-  if (validate.error) {
-    throw new z.ZodError(validate.error.issues);
-  }
+  // parse will throw a ZodError by default
+  const validatedBody = loginSchema.parse(body)
 
   // database logic goes here
 
@@ -27,7 +23,7 @@ export const login = (req: Request, res: Response, next: NextFunction) => {
   });
 };
 
-export const register = (req: Request, res: Response,next: NextFunction) => {
+export const register = (req: Request, res: Response, next: NextFunction) => {
   const body = req.body; // x-www-form-urlencoded
 
   //zod validation and errors handled by global error handler
@@ -35,12 +31,8 @@ export const register = (req: Request, res: Response,next: NextFunction) => {
     return next(new AppError("fullname, email and password are required", 400));
   }
 
-  const { fullname, email, password } = body;
-  const validate = registerSchema.safeParse({fullname, email, password });
-
-  if (validate.error) {
-    throw new z.ZodError(validate.error.issues);
-  }
+  // parse will throw a ZodError by default
+  const validatedBody = registerSchema.parse(body);
 
   // database logic goes here
 
