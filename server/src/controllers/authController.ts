@@ -1,6 +1,5 @@
 import { type NextFunction, type Request, type Response } from "express";
 import { AppError } from "../utils/AppError.ts";
-import * as z from "zod";
 import { loginSchema, registerSchema } from "../validators/auth.schema.ts";
 
 export const login = (req: Request, res: Response, next: NextFunction) => {

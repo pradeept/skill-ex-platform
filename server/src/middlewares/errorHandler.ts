@@ -20,7 +20,7 @@ export const errorHandler: ErrorRequestHandler = (
 
   if (err instanceof ZodError) {
     statusCode = 400;
-    message = `[${err.issues.map((issue) => " " + issue.message)}]`;
+    message = `[${err.issues.map((issue) => issue.message).join(", ")}]`;
   }
 
   res.status(statusCode).json({ status, message });
