@@ -74,5 +74,3 @@ export default function LoginForm() {
     </form>
   );
 }
-
-// add logo in Logo component
